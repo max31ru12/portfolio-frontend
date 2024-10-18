@@ -1,0 +1,23 @@
+.navbar {
+    height: 5rem;
+    width: 100vw;
+    max-width: 75vw;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: lightblue;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.logo {
+    height: 5em;
+}
+
+.desktop-menu-item {
+    margin: 1rem;
+    cursor: pointer;
+}
