@@ -10,7 +10,9 @@ function HomePage() {
     return (
         <>
             <Navbar />
-            <Outlet />
+            <div className="wrapper" style={{width: "75vw", margin: "auto"}}>
+                <Outlet />
+            </div> 
         </>
     )
 }

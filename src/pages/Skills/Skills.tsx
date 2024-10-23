@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
-import { List, Avatar } from 'antd'
+import { List, Avatar, Button } from 'antd'
+import { Link } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../services/store.ts'
 import { fetchSkills } from '../../services/thunks/SkillsThunk.ts'
@@ -11,6 +12,10 @@ import { ISkillDataType } from '../../interfaces/skills.tsx'
 function SkillList({ skillsData }){
     return (
         <div>
+            <Button color="default" variant="outlined">
+                <Link to="create">Add skill</Link>
+            </Button>
+            
             <List
             className="skill-list" 
             itemLayout='horizontal' 

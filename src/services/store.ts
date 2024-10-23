@@ -3,10 +3,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux"
 
 import skillReducer from "./slices/SkillsSlice.ts";
+import todosReducer from "./slices/TodosSlice.ts";
 
 const store = configureStore({
     reducer: {
         skills: skillReducer,
+        todos: todosReducer,
     }
 })
 
