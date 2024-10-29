@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
 import axios from 'axios'
+import { Input } from 'antd'
 
 import { ICreateTodo, ICreateTodoFormErrors } from '../../interfaces/todo'
+import "./todo.css"
 
 
 export default function TodoCreateForm() {
@@ -15,7 +17,7 @@ export default function TodoCreateForm() {
 
         setFormData((prevFormData) => ({...prevFormData, [name]: value}))
 
-            if (value.length >= 5) {
+            if (value.length >= 3) {
                 setFormErrors({...formErrors, [name]: null})
             } else {
                 setFormErrors({...formErrors, [name]: "Less than 5 characters"})
@@ -24,17 +26,17 @@ export default function TodoCreateForm() {
 
     function onSubmit(event){
         event.preventDefault()
-        
+        axios.post("http://localhost:8000/todo/", formData)
     }
 
     return (
-        <form action="" onSubmit={onSubmit}>
+        <form action="" onSubmit={onSubmit} className="todo-create-form">
             <label htmlFor="title">Title: </label>
-            <input type="text" name="title" id="title" value={formData.title} onChange={handleChange}/><br/>
+            <Input type="text" name="title" id="title" value={formData.title} onChange={handleChange} placeholder="Enter title..."/><br/>
             {formErrors.title && <div style = {{color: 'red'}}>{formErrors.title}</div>}
 
             <label htmlFor="description">Description: </label>
-            <input type="text" name="description" id="description" value={formData.description} onChange={handleChange}/><br/>
+            <Input type="text" name="description" id="description" value={formData.description} onChange={handleChange} placeholder="Enter description..."/><br/>
             {formErrors.description && <div style = {{color: 'red'}}>{formErrors.description}</div>}
 
             <button type="submit">Submit</button>

@@ -24,7 +24,7 @@ function SkillList({ skillsData }){
                 <List.Item>
                 <List.Item.Meta
                     avatar={<Avatar src={item.avatar_url} />}
-                    title={<a href="https://ant.design">{item.name}</a>}
+                    title={<Link to={String(item.id)}>{item.name}</Link>}
                     description={<div>Level {item.level}</div>}
                 />
                 </List.Item>

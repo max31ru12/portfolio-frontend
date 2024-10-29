@@ -1,17 +1,28 @@
 import React from "react";
 
-import { Button } from "antd";
+import type { MenuProps } from "antd";
+import { Button, Menu } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom"
 
 import "./navbar.css"
-import logo from "../../assets/logo-192.png" 
+
+type MenuItem = Required<MenuProps>['items'][number]
+
+const items = [
+    {
+        label: "Home",
+        key: "home",
+        icon: <HomeOutlined />
+    }
+]
 
 function Navbar() {
     return (
         <>
-            <div>
+            <div className="navbar">
                 <nav className="navbar">
-                    <img src={logo} alt="Logo" className="logo"/>
+                    {/* <img src={} alt="Logo" className="logo"/> */}
                     <div className="desktop-menu">
                         <Link to="/" className="desktop-menu-item">Home</Link>
                         <Link to="/todo/" className="desktop-menu-item">TODO</Link>
@@ -24,5 +35,6 @@ function Navbar() {
         </>
     )    
 }
+
 
 export default Navbar
