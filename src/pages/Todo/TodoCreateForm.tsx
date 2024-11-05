@@ -12,7 +12,7 @@ export default function TodoCreateForm() {
     const [formData, setFormData] = useState<ICreateTodo>({title: "", description: ""})
     const [formErrors, setFormErrors] = useState<ICreateTodoFormErrors>({title: null, description: null})
 
-    function handleChange(event){
+    function handleChange(event: { target: { name: any; value: any } }){
         const { name, value } = event.target
 
         setFormData((prevFormData) => ({...prevFormData, [name]: value}))
@@ -24,7 +24,7 @@ export default function TodoCreateForm() {
             }
     }
 
-    function onSubmit(event){
+    function onSubmit(event: { preventDefault: () => void }){
         event.preventDefault()
         axios.post("http://localhost:8000/todo/", formData)
     }

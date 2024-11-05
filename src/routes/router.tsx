@@ -8,6 +8,7 @@ import Skills from "../pages/Skills/Skills.tsx";
 import SkillDetail from "../pages/Skills/SkillDetail.tsx";
 import TodoCreateForm from "../pages/Todo/TodoCreateForm.tsx";
 import SkillCreateForm from "../pages/Skills/SkillCreateForm.tsx";
+import SignUp from "../pages/Auth/SignUp.tsx";
 
 const router = createBrowserRouter([
     {
@@ -34,8 +35,13 @@ const router = createBrowserRouter([
             {
                 path: "/todo/create",
                 element: <TodoCreateForm />
-            }
+            },
+
         ]
+    },
+    {
+        path: "/signup",
+        element: <SignUp />
     },
 ]);
 

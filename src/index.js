@@ -7,6 +7,8 @@ import { Provider } from "react-redux"
 import router from "./routes/router.tsx"
 import store from "./services/store.ts"
 
+import "./index.css"
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

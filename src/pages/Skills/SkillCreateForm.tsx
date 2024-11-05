@@ -10,7 +10,7 @@ export default function SkillCreateForm() {
     const levelRef = useRef<HTMLSelectElement>(null)
     const avatarRef = useRef<HTMLInputElement>(null)
 
-    function handleSubmit(event) {
+    function handleSubmit(event: { preventDefault: () => void }) {
         event.preventDefault()
         const formData: ICreateSkill = {
             name: nameRef.current?.value ?? "",

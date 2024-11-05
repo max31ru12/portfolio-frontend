@@ -4,7 +4,7 @@ import { ITodos } from "../../interfaces/todo.ts";
 
 import { fetchTodos } from "../thunks/TodoThunk.ts";
 
-const initialState: ITodos = new Array()
+const initialState: ITodos = []
 
 const todosSlice = createSlice({
     name: "todos",

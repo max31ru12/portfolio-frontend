@@ -1,39 +1,57 @@
-import React from "react";
+import React, {useState} from "react";
 
-import type { MenuProps } from "antd";
-import { Button, Menu } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom"
+import type {MenuProps} from "antd";
+import {Menu} from "antd";
+import {AreaChartOutlined, HomeOutlined, LoginOutlined, MenuUnfoldOutlined} from "@ant-design/icons";
+import {Link} from "react-router-dom"
 
 import "./navbar.css"
 
+
 type MenuItem = Required<MenuProps>['items'][number]
 
-const items = [
+const items: MenuItem[] = [
     {
-        label: "Home",
+        label: <Link to="/" style={{color: "gold", fontSize: "1.5rem"}}
+                     className="desktop-menu-item">Home</Link>,
         key: "home",
-        icon: <HomeOutlined />
+        icon: <HomeOutlined style={{color: "gold", fontSize: "1.5rem"}}/>
+    },
+    {
+        label: <Link to="/todo/" style={{color: "gold", fontSize: "1.5rem"}}
+                     className="desktop-menu-item">TodoList</Link>,
+        key: "todo",
+        icon: <MenuUnfoldOutlined style={{color: "gold", fontSize: "1.5rem"}}/>
+    },
+    {
+        label: <Link to="/skills/" style={{color: "gold", fontSize: "1.5rem"}}
+                     className="desktop-menu-item">Skills</Link>,
+        key: "skills",
+        icon: <AreaChartOutlined style={{color: "gold", fontSize: "1.5rem"}}/>
+    },
+    {
+        label: <Link to="/signup/" style={{color: "gold", fontSize: "1.5rem"}}
+                     className="desktop-menu-item">Signup</Link>,
+        key: "signup",
+        icon: <LoginOutlined style={{color: "gold", fontSize: "1.5rem"}}/>
     }
+
 ]
 
 function Navbar() {
+
+    const [current, setCurrent] = useState('mail');
+
+    const onClick: MenuProps['onClick'] = (e) => {
+        setCurrent(e.key);
+    };
+
     return (
         <>
-            <div className="navbar">
-                <nav className="navbar">
-                    {/* <img src={} alt="Logo" className="logo"/> */}
-                    <div className="desktop-menu">
-                        <Link to="/" className="desktop-menu-item">Home</Link>
-                        <Link to="/todo/" className="desktop-menu-item">TODO</Link>
-                        <Link to="/skills/" className="desktop-menu-item">Skills</Link>
-                        <Link to="/portfolio/" className="desktop-menu-item">Portfolio</Link>
-                    </div>
-                    <Button type="primary" size="large">Contact Me</Button>
-                </nav>
-            </div>
+            <Menu style={{backgroundColor: "#001529"}} onClick={onClick} selectedKeys={[current]} mode="horizontal"
+                  items={items}/>;
         </>
-    )    
+    )
 }
 
 
